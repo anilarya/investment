@@ -1,20 +1,171 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<header class="header">
+    <div class="container"> 
+    <h5><i class="fa fa-home" aria-hidden="true"></i>  YOUR ACCOUNT SUMMARY</h5>
+    </div>
+    <div class="content row">
+        <div class="col-md-8">
+            <div class="analysis row">
+                <div class="col-md-3">
+                    <div class="label">
+                            Investment Value
+                    </div>
+                    <div class="value">
+                        SGD 7,945
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="label">
+                            Current Value
+                    </div>
+                    <div class="value green fix-height">
+                        SGD 7,945
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="label">
+                            Annualized Returns
+                    </div>
+                    <div class="value green">
+                        -100.0 % <i class="fa fa-arrow-down negation" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="label">
+                            Cash Balance
+                    </div>
+                    <div class="value green fix-height">
+                        SGD 7,945
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 chart-donut">
+            <div>
+              <canvas height="100" baseChart
+                  [data]="doughnutChartData"
+                  [labels]="doughnutChartLabels"
+                  [options]="doughnutChartOptions"
+                  [legend]="false"
+                  [chartType]="doughnutChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)">
+                  </canvas>
+            </div>
+            <div class="">
+                <div *ngIf="legendData" class="legend-data"> 
+                    <ul class="my-legend">
+                     <li class="legend-item row" *ngFor="let legendItem of legendData"> 
+                        <span class="col-md-4">{{legendItem.text}}</span>  <span class="col-md-4 value">243%</span></li>
+                    </ul>
+                </div> 
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="header-footer">
+        <div class="content-footer">
+        <i class="fa fa-bell bell-icon" aria-hidden="true"></i>
+        <span class="text">&nbsp; &nbsp;You have access cash available for investing </span>
+        <span>
+           &nbsp;<button type="button" class="btn btn-danger">Allocate Funds</button>
+        </span>
+        </div>
+    </div>
 
+</header><br><br><br>
+<div class="clearfix"></div>
+<div class="body-content">
+     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="pills-investment-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">1 Investments</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="goals-planning-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">1 Goal(s) in planning</a>
+      </li> 
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active container" id="pills-home" role="tabpanel" aria-labelledby="pills-investment-tab">
+            <div class="cards row">
+                <div class="card-content col-lg-4 col-sm-4 col-md-4">
+                  <img class="card-img-top" src="assets/blue.jpg" alt="Card image cap">
+                  <div class="edit-growth">
+                    <span>GROWTH</span>&nbsp;<span><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                  </div>
+                  <div class="image-footer row">
+                    <span class="col-lg-4 col-sm-4 col-md-4"> 10 years</span>
+                    <span class="col-lg-4 col-sm-4 col-md-4">  
+                            <input type="text" class="form-control" id="usr">
+                    </span>
+                  </div> 
+                  <div class="card-rows row">
+                        <div class="fieldgroup col-lg-12  col-sm-12  col-md-12 row">
+                            <div class="label col-lg-6 col-sm-6 col-md-6">
+                                    <div class="lebel-text pull-left">Invested</div>
+                            </div>
+                            <div class="label col-lg-6 col-sm-6 col-md-6">
+                                    <div class="lebel-value pull-right">SGD 7,666</div>
+                            </div>
+                        </div>
+                         <div class="fieldgroup col-lg-12  col-sm-12  col-md-12 row">
+                            <div class="label col-lg-6 col-sm-6 col-md-6">
+                                    <div class="lebel-text pull-left">Withdrawn</div>
+                            </div>
+                            <div class="label col-lg-6 col-sm-6 col-md-6">
+                                    <div class="lebel-value pull-right">SGD 7,666</div>
+                            </div>
+                        </div>
+                         <div class="fieldgroup col-lg-12  col-sm-12  col-md-12 row">
+                            <div class="label col-lg-6 col-sm-6 col-md-6">
+                                    <div class="lebel-text pull-left">Current Value</div>
+                            </div>
+                            <div class="label col-lg-6 col-sm-6 col-md-6">
+                                    <div class="lebel-value pull-right">SGD 7,666</div>
+                            </div>
+                        </div>
+                        <div class="fieldgroup col-lg-12  col-sm-12  col-md-12 row">
+                            <div class="label col-lg-6 col-sm-6 col-md-6">
+                                    <div class="lebel-text pull-left">Returns</div>
+                            </div>
+                            <div class="label col-lg-6 col-sm-6 col-md-6">
+                                    <div class="lebel-value pull-right">-100% <i class="fa fa-arrow-down negation" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+                        <div class="fieldgroup col-lg-12  col-sm-12  col-md-12 row">
+                            <div class="label col-lg-6 col-sm-6 col-md-6">
+                                    <div class="lebel-text pull-left">Portfolio health</div>
+                            </div>
+                            <div class="label col-lg-6 col-sm-6 col-md-6">
+                                    <div class="lebel-value canvas-health pull-right"> 
+                                        <canvas height="60" width="120" baseChart
+                                        [datasets]="barChartData" 
+                                        [options]="barChartOptions"
+                                        [legend]="barChartLegend"
+                                        [chartType]="barChartType"
+                                        [legend]="false"
+                                        (chartHover)="chartHovered($event)"
+                                        (chartClick)="chartClicked($event)"></canvas></div>
+                            </div>
+                        </div>
+                        <div class="fieldgroup-padding-zero col-lg-12  col-sm-12  col-md-12 row">
+                            <button type="button" class="view">View</button>
+                            <button type="button" class="Invest">Invest More</button>
+                            <button type="button" class="Withdraw">Withdraw</button>
+                        </div>
+                  </div>
+                </div>
+                <div class="card-content-add col-lg-4 col-sm-4 col-md-4" >
+                   
+                    <div class="card-body">
+                        <h5 class="card-title">
+                             <div class="bar horizontal"></div>
+                             <div class="bar vertical"></div>
+                        </h5>
+                        <p class="card-text">Add new investment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="goals-planning-tab"></div>
+        </div>
+</div>
