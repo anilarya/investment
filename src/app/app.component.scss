@@ -123,10 +123,8 @@ button{
 				    .lebel-value {
 				    	font-size: 16px; 
     					font-weight: 800;
-    					&.canvas-health{
-    						position: relative;
-    						top: -28px;
-    						right: -29px;
+    					.signal-strength{
+    						color :green;
     					}
 				    }
 				}
